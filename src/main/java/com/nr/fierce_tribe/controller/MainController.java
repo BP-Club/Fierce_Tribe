@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api")
 public class MainController {
 
-
+    @RequestMapping("/open")
+    public String open(){
+        return "success!";
+    }
 
 }

@@ -1,3 +1,4 @@
+/*
 package com.nr.fierce_tribe.config;
 
 import lombok.Getter;
@@ -25,3 +26,4 @@ public class GlobalConfig {
     }
 
 }
+*/

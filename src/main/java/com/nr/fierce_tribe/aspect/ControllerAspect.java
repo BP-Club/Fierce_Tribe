@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class ControllerAspect {
 
-    @Pointcut("execution(* com.lingtian.pm_timor.controller..*(..)) && !@annotation(com.lingtian.pm_timor.annotation.NoLog)")
+    @Pointcut("execution(* com.nr.fierce_tribe.controller..*(..)) && !@annotation(com.nr.fierce_tribe.annotation.NoLog)")
     public void controllerPoint() {
 
     }

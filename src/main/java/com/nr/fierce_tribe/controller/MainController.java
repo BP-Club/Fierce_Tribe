@@ -19,5 +19,9 @@ public class MainController {
         jsonObject.put("message","操作成功");
         return jsonObject;
     }
+    @RequestMapping("/open")
+    public String open(){
+        return "success!";
+    }
 
 }

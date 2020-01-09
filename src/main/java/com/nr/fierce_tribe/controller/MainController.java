@@ -29,12 +29,18 @@ public class MainController {
     public void test22(){
 
     }
+    @GetMapping("/test2")
+    public JSONObject test2(){
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("data","HelloWorld2");
+        jsonObject.put("resultCode", "200");
+        jsonObject.put("success", true);
+        jsonObject.put("message","操作成功");
+        return jsonObject;
+    }
     @RequestMapping("/open")
     public String open(){
         return "success!";
     }
-
-
-
 
 }

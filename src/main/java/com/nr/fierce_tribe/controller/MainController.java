@@ -21,6 +21,11 @@ public class MainController {
     }
 
     @RequestMapping("/test")
+    public void test223434324(){
+
+    }
+
+    @RequestMapping("/test")
     public void test22(){
 
     }

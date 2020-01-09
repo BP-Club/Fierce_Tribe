@@ -38,7 +38,7 @@ public class EsSearchUtils {
      * @return SearchResponse的Json
      */
     public List<String> queryByFilter_Accept(String index, String type, String field, String Accept, TransportClient client) {
-        ESConnectUtil escu = new ESConnectUtil();
+        ESConnectUtils escu = new ESConnectUtils();
         //TransportClient client=escu.getTransportClient();
         SearchResponse response = client.prepareSearch(index)//设置要查询的索引(index)
                 .setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
@@ -66,7 +66,7 @@ public class EsSearchUtils {
      * @return 结果list
      */
     public List<String> queryByFilter(String index, String type, int size) {
-        TransportClient client = ESConnectUtil.getTransportClient();
+        TransportClient client = ESConnectUtils.getTransportClient();
         SearchResponse response = client.prepareSearch(index)//设置要查询的索引(index)
                 .setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
                 .setTypes(type)//设置type, 这个在建立索引的时候同时设置了, 或者可以使用head工具查看
@@ -92,7 +92,7 @@ public class EsSearchUtils {
      */
     public boolean deleteDoc(String index, String type, String id) {
         boolean flg = false;
-        TransportClient client = ESConnectUtil.getTransportClient();
+        TransportClient client = ESConnectUtils.getTransportClient();
         DeleteResponse deleteResponse = client
                 .prepareDelete()
                 .setIndex(index)
@@ -114,7 +114,7 @@ public class EsSearchUtils {
      * @param type
      */
     public double minDoc(String index, String type, String field) {
-        TransportClient client = ESConnectUtil.getTransportClient();
+        TransportClient client = ESConnectUtils.getTransportClient();
         SearchResponse response = client
                 .prepareSearch(index)
                 .setTypes(type)
@@ -134,7 +134,7 @@ public class EsSearchUtils {
      * @param type
      */
     public double maxDoc(String index, String type, String field) {
-        TransportClient client = ESConnectUtil.getTransportClient();
+        TransportClient client = ESConnectUtils.getTransportClient();
         SearchResponse response = client
                 .prepareSearch(index)
                 .setTypes(type)
@@ -153,7 +153,7 @@ public class EsSearchUtils {
      * @param type
      */
     public double sumDoc(String index, String type, String field) {
-        TransportClient client = ESConnectUtil.getTransportClient();
+        TransportClient client = ESConnectUtils.getTransportClient();
         SearchResponse response = client
                 .prepareSearch(index)
                 .setTypes(type)
@@ -174,7 +174,7 @@ public class EsSearchUtils {
      * @param size
      */
     public void testSumGroupBy(String index, String type, String group_name, int size) {
-        TransportClient client = ESConnectUtil.getTransportClient();
+        TransportClient client = ESConnectUtils.getTransportClient();
         TermsBuilder termsBuilder = AggregationBuilders
                 .terms("group_return").field(group_name);
         SearchRequestBuilder searchRequestBuilder = client.prepareSearch(index).setTypes(type)
@@ -197,7 +197,7 @@ public class EsSearchUtils {
      * @param size
      */
     public void getGroupBy(String index, String type, String group_name1, String group_name2, int size, String timeOut) {
-        TransportClient client = ESConnectUtil.getTransportClient();
+        TransportClient client = ESConnectUtils.getTransportClient();
         TermsBuilder termsBuilder = AggregationBuilders
                 .terms("group_return1").field(group_name1);
         TermsBuilder termsBuilder1 = AggregationBuilders
@@ -230,7 +230,7 @@ public class EsSearchUtils {
      * @return 查询结果的map，三层map，为json对应的位置
      */
     public HashMap getGroupByMap(String index, String type, String group_name1, String group_name2, int size, String timeOut) {
-        TransportClient client = ESConnectUtil.getTransportClient();
+        TransportClient client = ESConnectUtils.getTransportClient();
         TermsBuilder termsBuilder = AggregationBuilders
                 .terms("group_return1").field(group_name1);
         TermsBuilder termsBuilder1 = AggregationBuilders
@@ -270,7 +270,7 @@ public class EsSearchUtils {
      * @return 查询结果的map，三层map，为json的Aggregation对应的三层
      */
     public HashMap getGroupByMap(String index, String type, String group_name1, String group_name2, String timeOut) {
-        TransportClient client = ESConnectUtil.getTransportClient();
+        TransportClient client = ESConnectUtils.getTransportClient();
         int size = 0;
         TermsBuilder termsBuilder = AggregationBuilders
                 .terms("group_return1").field(group_name1);
@@ -334,7 +334,7 @@ public class EsSearchUtils {
      * @SQL select sum{group_name}  from {index} WHERE field_name=field_value GROUP BY {group_name};
      */
     public double getGroupSum(String index, String type, String field_name, String field_value, String group_name, String timeOut) {
-        TransportClient client = ESConnectUtil.getTransportClient();
+        TransportClient client = ESConnectUtils.getTransportClient();
         SumBuilder sumBuilder = AggregationBuilders.sum("group_sum").field(group_name);
         SearchRequestBuilder searchRequestBuilder = client.prepareSearch(index)
                 .setSearchType(SearchType.DFS_QUERY_THEN_FETCH)

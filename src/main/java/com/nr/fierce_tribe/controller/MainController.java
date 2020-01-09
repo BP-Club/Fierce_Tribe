@@ -27,7 +27,7 @@ public class MainController {
 
     @RequestMapping("/test")
     public void test22(){
-
+        System.out.println("dsdsd");
     }
     @GetMapping("/test2")
     public JSONObject test2(){

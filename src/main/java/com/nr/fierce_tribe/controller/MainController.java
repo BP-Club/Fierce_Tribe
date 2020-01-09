@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api")
 public class MainController {
 
-    @RequestMapping("/test")
+    @GetMapping("/test")
     public JSONObject test(){
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("data","HelloWorld");

@@ -1,7 +1,5 @@
 package com.nr.fierce_tribe.entity.api;
 
-import com.nr.fierce_tribe.entity.api.RestApiResult;
-
 import java.util.HashMap;
 
 public class RestApiResultImpl extends HashMap<String, Object> implements RestApiResult {

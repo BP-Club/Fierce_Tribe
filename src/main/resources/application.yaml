@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active: dev
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+      exclude: WEB-INF/**
+    freemarker:
+      cache: false
+server:
+  port: 8000
+  servlet:
+    context-path: /rest
